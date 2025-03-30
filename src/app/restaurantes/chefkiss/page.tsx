@@ -1,0 +1,177 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Navbar from "@/app/components/navbar";
+import Footer from "@/app/components/footer";
+import CardPrimario from "@/app/components/layoutpadrao/CardPrimario";
+import CardSecundario from "@/app/components/layoutpadrao/CardSecundario";
+import CardTerciario from "@/app/components/layoutpadrao/CardTerciario";
+import CarroselLayout from "@/app/components/layoutpadrao/CarroselLayout";
+
+type Produto = {
+  id: number;
+  nome: string;
+  imagem: string;
+  distancia: string;
+  tempo: string;
+  preco: string;
+};
+
+const ChefKissPage = () => {
+  const [produtos, setProdutos] = useState<Produto[]>([]);
+  const [produtos2, setProdutos2] = useState<Produto[]>([]);
+  const [produtos3, setProdutos3] = useState<Produto[]>([]);
+
+  useEffect(() => {
+    const produtosDiferentes: Produto[] = [
+      {
+        id: 1,
+        nome: "Sopa",
+        imagem: "/sopa2.png",
+        distancia: "3.0 km",
+        tempo: "30 min",
+        preco: "R$ 59,90",
+      },
+      {
+        id: 2,
+        nome: "Sopa",
+        imagem: "/sopa2.png",
+        distancia: "2.0 km",
+        tempo: "20 min",
+        preco: "R$ 39,90",
+      },
+      {
+        id: 3,
+        nome: "Sopa",
+        imagem: "/sopa2.png",
+        distancia: "2.0 km",
+        tempo: "20 min",
+        preco: "R$ 39,90",
+      },
+      {
+        id: 4,
+        nome: "Sopa",
+        imagem: "/sopa2.png",
+        distancia: "2.0 km",
+        tempo: "20 min",
+        preco: "R$ 39,90",
+      },
+    ];
+
+    const produtosDiferentes2: Produto[] = [
+      {
+        id: 1,
+        nome: "Petisco",
+        imagem: "/petisco1.png",
+        distancia: "3.0 km",
+        tempo: "30 min",
+        preco: "R$ 59,90",
+      },
+      {
+        id: 2,
+        nome: "Petisco",
+        imagem: "/petisco2.png",
+        distancia: "2.0 km",
+        tempo: "20 min",
+        preco: "R$ 39,90",
+      },
+      {
+        id: 3,
+        nome: "Petisco",
+        imagem: "/petisco3.png",
+        distancia: "2.0 km",
+        tempo: "20 min",
+        preco: "R$ 39,90",
+      },
+      {
+        id: 4,
+        nome: "Petisco",
+        imagem: "/petisco4.png",
+        distancia: "2.0 km",
+        tempo: "20 min",
+        preco: "R$ 39,90",
+      },
+    ];
+
+    const produtosDiferentes3: Produto[] = [
+      {
+        id: 1,
+        nome: "Refrigerante",
+        imagem: "/refri1.png",
+        distancia: "3.0 km",
+        tempo: "30 min",
+        preco: "R$ 59,90",
+      },
+      {
+        id: 2,
+        nome: "Vinho",
+        imagem: "/vinho1.png",
+        distancia: "2.0 km",
+        tempo: "20 min",
+        preco: "R$ 39,90",
+      },
+      {
+        id: 3,
+        nome: "Whiskys",
+        imagem: "/whisky1.png",
+        distancia: "2.0 km",
+        tempo: "20 min",
+        preco: "R$ 39,90",
+      },
+      {
+        id: 4,
+        nome: "Cervejas",
+        imagem: "/cerveja1.png",
+        distancia: "2.0 km",
+        tempo: "20 min",
+        preco: "R$ 39,90",
+      },
+    ];
+
+    setProdutos(produtosDiferentes);
+    setProdutos2(produtosDiferentes2);
+    setProdutos3(produtosDiferentes3);
+  }, []);
+
+  return (
+    <div>
+      <Navbar />
+      <CarroselLayout />
+      <div className="py-8 bg-gray-100">
+        <div className="max-w-5xl mx-auto text-center flex items-center justify-center space-x-6">
+          <img
+            src="/restauranteimg/chefkiss.png" 
+            alt="Logo do Restaurante ChefKiss"
+            className="w-80 h-80 object-cover rounded-full"
+          />
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Restaurante ChefKiss</h1>
+            <p className="text-lg text-gray-600 mt-4">
+              Bem-vindo ao ChefKiss! Aqui você encontra uma seleção deliciosa de pratos, petiscos e bebidas, preparados com carinho e qualidade.
+            </p>
+            <div className="mt-6 flex justify-center space-x-6">
+              <div>
+                <h3 className="font-semibold text-gray-800">Distância</h3>
+                <p className="text-gray-600">3.0 km</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800">Tempo de Entrega</h3>
+                <p className="text-gray-600">30 min</p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800">Avaliação</h3>
+                <p className="text-gray-600">4.5 ★</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <CardPrimario produtos={produtos} />
+      <CardSecundario produtos={produtos2} />
+      <CardTerciario produtos={produtos3} />
+      <Footer />
+    </div>
+  );
+};
+
+export default ChefKissPage;
