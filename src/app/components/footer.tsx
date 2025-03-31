@@ -12,28 +12,31 @@ const Footer = () => {
           
           <div>
             <Link href="/">
-            <h2 className="text-2xl font-bold text-black-500">Maricá <span className='text-red-500' >FOOD</span></h2>
-            <p className="text-black-400 text-sm mt-2">O melhor sabor da cidade!</p>
+              <h2 className="text-2xl font-bold text-black-500">Maricá <span className='text-red-500'>FOOD</span></h2>
+              <p className="text-black-400 text-sm mt-2">O melhor sabor da cidade!</p>
             </Link>
           </div>
 
-          <div className="flex space-x-4 ">
-            <a className="text-black-300 hover:text-red-500 transition text-2xl cursor-pointer">
+          <div className="flex flex-col md:flex-row gap-4">
+            <Link href="/escolhaLayout" className="text-black-300 hover:text-red-500 transition text-lg cursor-pointer">Layout</Link>
+            <Link href="/carrinhoChefkiss" className="text-black-300 hover:text-red-500 transition text-lg cursor-pointer">Carrinho Chefkiss</Link>
+          </div>
+
+          <div className="flex space-x-4">
+            <a href="" target="_blank" className="text-black-300 hover:text-red-500 transition text-2xl cursor-pointer">
               <FaFacebook />
             </a>
-            <a  className="text-black-300 hover:text-red-500 transition text-2xl cursor-pointer">
+            <a href="" target="_blank" className="text-black-300 hover:text-red-500 transition text-2xl cursor-pointer">
               <FaInstagram />
             </a>
-            <a className="text-black-300 hover:text-red-500 transition text-2xl cursor-pointer">
+            <a href="" target="_blank" className="text-black-300 hover:text-red-500 transition text-2xl cursor-pointer">
               <FaWhatsapp />
             </a>
           </div>
         </div>
 
-        
         <hr className="border-gray-700 my-6" />
 
-        
         <p className="text-black-400 text-sm text-center">
           © {new Date().getFullYear()} MaricáFOOD. Todos os direitos reservados.
         </p>

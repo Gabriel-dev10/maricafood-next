@@ -114,10 +114,12 @@ const Navbar = () => {
           
           <div className="flex items-center space-x-6">
             <button className="text-black hover:text-white transition">
-              <ShoppingCart size={24} />
+              <a href="/carrinho">
+                <ShoppingCart size={24} />
+              </a>
             </button>
             <button className="text-black hover:text-white transition">
-              <a href="/carrinho">
+              <a href="/perfil">
                 <User size={24} />
               </a>
             </button>

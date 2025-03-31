@@ -137,32 +137,28 @@ const ChefKissPage = () => {
     <div>
       <Navbar />
       <CarroselLayout />
-      <div className="py-8 bg-gray-100">
-        <div className="max-w-5xl mx-auto text-center flex items-center justify-center space-x-6">
-          <img
-            src="/restauranteimg/chefkiss.png" 
-            alt="Logo do Restaurante ChefKiss"
-            className="w-80 h-80 object-cover rounded-full"
-          />
+      <div className="py-8 bg-gray-100 flex flex-col items-center text-center">
+        <img
+          src="/chefkiss.png"
+          alt="Logo do Restaurante ChefKiss"
+          className="w-60 h-60 sm:w-80 sm:h-80 object-cover rounded-full"
+        />
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-4">Restaurante ChefKiss</h1>
+        <p className="text-md sm:text-lg text-gray-600 mt-4 max-w-lg">
+          Bem-vindo ao ChefKiss! Aqui você encontra uma seleção deliciosa de pratos, petiscos e bebidas, preparados com carinho e qualidade.
+        </p>
+        <div className="mt-6 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Restaurante ChefKiss</h1>
-            <p className="text-lg text-gray-600 mt-4">
-              Bem-vindo ao ChefKiss! Aqui você encontra uma seleção deliciosa de pratos, petiscos e bebidas, preparados com carinho e qualidade.
-            </p>
-            <div className="mt-6 flex justify-center space-x-6">
-              <div>
-                <h3 className="font-semibold text-gray-800">Distância</h3>
-                <p className="text-gray-600">3.0 km</p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800">Tempo de Entrega</h3>
-                <p className="text-gray-600">30 min</p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-800">Avaliação</h3>
-                <p className="text-gray-600">4.5 ★</p>
-              </div>
-            </div>
+            <h3 className="font-semibold text-gray-800">Distância</h3>
+            <p className="text-gray-600">3.0 km</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-gray-800">Tempo de Entrega</h3>
+            <p className="text-gray-600">30 min</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-gray-800">Avaliação</h3>
+            <p className="text-gray-600">4.5 ★</p>
           </div>
         </div>
       </div>

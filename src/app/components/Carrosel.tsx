@@ -25,8 +25,8 @@ const Carrossel = ({ imagens, className = "" }: CarrosselProps) => {
   return (
     <div className={`relative w-full max-w-full h-[400px] mx-auto overflow-hidden rounded-2xl ${className}`}>
       <div
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${slideIndex * 30}%)` }}
+        className="flex transition-transform duration-500 ease-in-out h-[400px] py-4 w-150"
+        style={{ transform: `translateX(-${slideIndex * 100}%)` }}
       >
         {imagens.map((src, index) => (
           <img 

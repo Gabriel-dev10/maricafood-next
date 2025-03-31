@@ -31,7 +31,7 @@ const restaurante = [
   {
     id: 4,
     nome: "Chef Kiss",
-    imagem: "/restauranteImg/chefkiss.png",
+    imagem: "/chefkiss.png",
     info: "Comida caseira com toque especial do chef.",
     local: "Flamengo",
     link: "/restaurantes/chefkiss",  

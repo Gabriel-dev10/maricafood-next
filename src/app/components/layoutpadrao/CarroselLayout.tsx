@@ -8,9 +8,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const imagens = [
-  { id: 1, src: "/carroselimg/imgRest1.png", alt: "Sopa Especial" },
-  { id: 2, src: "/carroselimg/imgRest2.png", alt: "Petisco Variado" },
-  { id: 3, src: "/carroselimg/imgRest3.png", alt: "Vinho Tinto" },
+  { id: 1, src: "/imgRest1.png", alt: "Sopa Especial" },
+  { id: 2, src: "/imgRest2.png", alt: "Petisco Variado" },
+  { id: 3, src: "/imgRest3.png", alt: "Vinho Tinto" },
 ];
 
 const Carrossel = () => {
