@@ -12,7 +12,10 @@ const PerfilPage = () => {
     address: 'Mumbuca, 143, Maricá',
     orders: [
       { id: 1, items: 'Lasanha de frango', total: 30.0, date: '2025-03-25' },
-      { id: 2, items: 'Hamburger Clássico', total: 20.0, date: '2025-03-28' },
+      { id: 2, items: 'Hamburger Clássico', total: 20.0, date: '2025-02-14' },
+      { id: 3, items: 'Hamburger Duplo', total: 24.0, date: '2025-01-03' },
+      { id: 4, items: 'Hamburger de frango', total: 23.0, date: '2025-01-08' },
+      { id: 5, items: 'Maionese', total: 2.50, date: '2025-03-18' },
     ]
   });
 

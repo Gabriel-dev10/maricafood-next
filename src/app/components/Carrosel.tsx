@@ -40,14 +40,14 @@ const Carrossel = ({ imagens, className = "" }: CarrosselProps) => {
 
       <button
         onClick={() => moveSlide(-1)}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-blue-500 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition"
       >
         ❮
       </button>
 
       <button
         onClick={() => moveSlide(1)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-blue-500 bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition"
       >
         ❯
       </button>

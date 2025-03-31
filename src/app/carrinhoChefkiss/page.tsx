@@ -14,7 +14,7 @@ function App() {
     { 
       id: 'PED001', 
       status: 'Finalizado', 
-      cliente: 'João Silva',
+      cliente: 'Ricardo Silva',
       endereco: 'Rua das Flores, 123 - Centro, Maricá',
       valor: 50.0, 
       pagamento: 'Cartão de Crédito',
@@ -72,7 +72,7 @@ function App() {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'Finalizado':
+      case 'Fin alizado':
         return <CheckCircle2 className="w-5 h-5 text-green-500" />;
       case 'Em andamento':
         return <Clock className="w-5 h-5 text-blue-500" />;
@@ -86,7 +86,6 @@ function App() {
   const filteredPedidos = pedidos
     .filter(p => filtro === 'Todos' || p.status === filtro)
     .filter(p => 
-      p.cliente.toLowerCase().includes(searchTerm.toLowerCase()) ||
       p.id.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -151,7 +150,7 @@ function App() {
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                   onClick={() => setFiltro(f)}
-                >
+                  >
                   {f}
                 </button>
               ))}

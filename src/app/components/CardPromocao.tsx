@@ -3,24 +3,24 @@
 const promocao = [
   {
     id: 1,
-    nome: "Hambúrguer",
-    imagem: "/12.png", 
+    nome: "Suco",
+    imagem: "/suco_promo.png", 
     distancia: "1.2 km",
     tempo: "15 min",
-    preco: "R$ 25,90",
+    preco: "R$ 5,90",
   },
   {
     id: 2,
-    nome: "Pizza",
-    imagem: "/8.png", 
+    nome: "Macarrão",
+    imagem: "/macarrao_promo.png", 
     distancia: "2.5 km",
     tempo: "25 min",
-    preco: "R$ 39,90",
+    preco: "R$ 9,90",
   },
   {
     id: 3,
-    nome: "Sanduíche",
-    imagem: "/7.png", 
+    nome: "Lasanha",
+    imagem: "/lasanha_promo.png", 
     distancia: "1.8 km",
     tempo: "20 min",
     preco: "R$ 29,90",
@@ -28,10 +28,10 @@ const promocao = [
   {
     id: 4,
     nome: "Batata frita",
-    imagem: "/6.png", 
+    imagem: "/batata-frita.png", 
     distancia: "3.2 km",
     tempo: "10 min",
-    preco: "R$ 4,90",
+    preco: "R$ 14,90",
   },
 ];
 
@@ -48,7 +48,7 @@ const CardPromocao = () => {
             <img
               src={item.imagem}
               alt={item.nome}
-              className="w-60 h-60 mx-auto object-contain"
+              className="w-50 h-50 mx-auto object-contain"
             />
             <h3 className="text-lg font-semibold mt-2">{item.nome}</h3>
             <p className="text-gray-600 text-sm">

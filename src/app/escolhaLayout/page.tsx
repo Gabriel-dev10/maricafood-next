@@ -12,16 +12,17 @@ export default function LayoutSelector() {
     { id: 1, name: "Opção 1", src: "/imglayout/opcao1.jpg" },
     { id: 2, name: "Opção 2", src: "/imglayout/opcao2.jpg" },
     { id: 3, name: "Opção 3", src: "/imglayout/opcao3.jpg" },
+    { id: 4, name: "Opção padrão", src: "/imglayout/Padrao.jpg" },
   ];
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center mb-20">
         <Navbar />
-
-        <h1 className="text-3xl font-bold mb-4 text-gray-800 mt-10">Escolha o Layout do Restaurante</h1>
-        <p className="text-lg mb-8 text-gray-600">Selecione o layout que deseja usar para o seu restaurante. Clique nas opções abaixo para visualizar.</p>
-
+        <div className="mt-15">
+          <h1 className="text-3xl font-bold mb-4 text-gray-800 mt-10">Escolha o Layout do Restaurante</h1>
+          <p className="text-lg mb-8 text-gray-600">Selecione o layout que deseja usar para o seu restaurante. Clique nas opções abaixo para visualizar.</p>
+        </div>
 
         <div className="flex space-x-6 mb-8">
           {layouts.map((layout) => (

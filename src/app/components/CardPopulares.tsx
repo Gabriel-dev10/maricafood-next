@@ -3,7 +3,7 @@
 const populares = [
   {
     id: 1,
-    nome: "Hambúrguer",
+    nome: "Pizza",
     imagem: "/12.png", 
     distancia: "1.2 km",
     tempo: "15 min",
@@ -11,27 +11,27 @@ const populares = [
   },
   {
     id: 2,
-    nome: "Pizza",
+    nome: "Sanduíche",
     imagem: "/8.png", 
     distancia: "2.5 km",
     tempo: "25 min",
-    preco: "R$ 39,90",
+    preco: "R$ 9,90",
   },
   {
     id: 3,
-    nome: "Sanduíche",
+    nome: "Pizza",
     imagem: "/7.png", 
     distancia: "1.8 km",
     tempo: "20 min",
-    preco: "R$ 29,90",
+    preco: "R$ 39,90",
   },
   {
     id: 4,
-    nome: "Batata frita",
+    nome: "Hambúrguer",
     imagem: "/6.png", 
     distancia: "3.2 km",
     tempo: "10 min",
-    preco: "R$ 4,90",
+    preco: "R$ 24,90",
   },
 ];
 

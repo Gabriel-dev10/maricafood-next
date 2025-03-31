@@ -12,24 +12,40 @@ function App() {
       name: 'Lasanha de frango',
       restaurant: 'La pasta',
       price: 30.0,
-      quantity: 1,
-      image: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=800&auto=format&fit=crop&q=60'
+      quantity: 0,
+      image: 'https://plus.unsplash.com/premium_photo-1671559021023-3da68c12aeed?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       id: 2,
       name: 'Hamburger Clássico',
       restaurant: 'Tal Burguer',
       price: 25.0,
-      quantity: 2,
+      quantity: 1,
       image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=60'
+    },
+    {
+      id: 3,
+      name: 'Suco verde',
+      restaurant: 'Naturals',
+      price: 25.0,
+      quantity: 1,
+      image: 'https://images.unsplash.com/photo-1610970881699-44a5587cabec?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      id: 4,
+      name: 'Sopa',
+      restaurant: 'Chef Kiss',
+      price: 25.0,
+      quantity: 0,
+      image: 'https://images.unsplash.com/photo-1578861256505-d3be7cb037d3?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     }
   ]);
 
-  const updateQuantity = (id: number, change: number) => {
+  const updateQuantidade = (id: number, change: number) => {
     setCartItems(items =>
       items.map(item =>
         item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + change) }
+          ? { ...item, quantity: Math.max(0, item.quantity + change) }
           : item
       )
     );
@@ -40,8 +56,8 @@ function App() {
   };
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const deliveryFee = 5.0;
-  const total = subtotal + deliveryFee;
+  const PrecoEntrega = 0.50;
+  const total = subtotal + PrecoEntrega;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -87,14 +103,14 @@ function App() {
                         </button>
                         <div className="flex items-center border rounded-lg">
                           <button
-                            onClick={() => updateQuantity(item.id, -1)}
+                            onClick={() => updateQuantidade(item.id, -1)}
                             className="p-2 hover:text-yellow-500"
                           >
                             <Minus className="w-4 h-4" />
                           </button>
                           <span className="px-4 py-2 font-medium">{item.quantity}</span>
                           <button
-                            onClick={() => updateQuantity(item.id, 1)}
+                            onClick={() => updateQuantidade(item.id, 1)}
                             className="p-2 hover:text-yellow-500"
                           >
                             <Plus className="w-4 h-4" />
@@ -126,7 +142,7 @@ function App() {
                 </div>
                 <div className="flex justify-between mb-2">
                   <span className="text-gray-600">Taxa de entrega</span>
-                  <span className="font-medium">R$ {deliveryFee.toFixed(2)}</span>
+                  <span className="font-medium">R$ {PrecoEntrega.toFixed(2)}</span>
                 </div>
                 <div className="border-t mt-4 pt-4">
                   <div className="flex justify-between">
