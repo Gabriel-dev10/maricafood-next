@@ -19,29 +19,30 @@ export default function LayoutSelector() {
     <div>
       <div className="flex flex-col items-center justify-center mb-20">
         <Navbar />
-        <div className="mt-15">
+        <div className="mt-15 text-center px-4">
           <h1 className="text-3xl font-bold mb-4 text-gray-800 mt-10">Escolha o Layout do Restaurante</h1>
           <p className="text-lg mb-8 text-gray-600">Selecione o layout que deseja usar para o seu restaurante. Clique nas opções abaixo para visualizar.</p>
         </div>
 
-        <div className="flex space-x-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row lg:gap-6 gap-4 mb-8">
           {layouts.map((layout) => (
             <button
               key={layout.id}
               onClick={() => setSelectedLayout(layout.src)}
-              className="p-4 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors"
+              className="p-4 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors flex flex-col items-center"
             >
-              <h3 className="text-xl font-semibold">{layout.name}</h3>
+              <h3 className="text-xl font-semibold mb-2">{layout.name}</h3>
               <Image
                 src={layout.src}
                 alt={`Visualização de ${layout.name}`}
                 width={200}
                 height={150}
-                className="mt-2 rounded-lg cursor-pointer"
+                className="rounded-lg cursor-pointer"
               />
             </button>
           ))}
         </div>
+
         {selectedLayout && (
           <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 flex items-center justify-center z-50">
             <div className="relative w-4/5 h-4/5 bg-white rounded-lg overflow-hidden shadow-xl">
