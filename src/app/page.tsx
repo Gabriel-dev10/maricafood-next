@@ -35,7 +35,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row justify-between items-center py-7 mt-10">
           <div className="flex flex-col gap-3 text-center md:text-left md:w-1/2">
             <h2 className="text-2xl font-medium text-black">Bem-vindo ao</h2>
-            <h1 className="text-5xl font-bold text-black">
+            <h1 className="text-6xl font-bold text-black">
               Maricá<span className="text-yellow-500">FOOD</span>
             </h1>
             <p className="text-lg text-gray-700">

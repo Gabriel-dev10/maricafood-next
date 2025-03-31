@@ -25,9 +25,9 @@ const Card = () => {
         <img className="h-48 object-cover rounded-lg"src="moto.png"alt="Restaurante"/>
         <div className="w-full">
           <div className="text-center mb-4">
-            <h3 className="text-2xl font-semibold text-black">Restaurante</h3>
+            <h3 className="text-2xl font-semibold text-black">Entregador</h3>
             <p className="text-lg text-gray-700 mt-2">
-              Cadastre seu restaurante, seja nosso parceiro e venda muito mais
+              Cadastre se como entregador, seja nosso parceiro e ganhe muito mais
               com o nosso app.
             </p>
           </div>
@@ -41,9 +41,9 @@ const Card = () => {
         <img className="h-48 object-cover rounded-lg"src="cesta.png"alt="Restaurante"/>
         <div className="w-full">
           <div className="text-center mb-4">
-            <h3 className="text-2xl font-semibold text-black">Restaurante</h3>
+            <h3 className="text-2xl font-semibold text-black">Mercado</h3>
             <p className="text-lg text-gray-700 mt-2">
-              Cadastre seu restaurante, seja nosso parceiro e venda muito mais
+              Cadastre seu mercado, seja nosso parceiro e venda muito mais
               com o nosso app.
             </p>
           </div>
