@@ -12,7 +12,7 @@ const Footer = () => {
           
           <div>
             <Link href="/">
-              <h2 className="text-2xl font-bold text-black-500">Maricá <span className='text-red-500'>FOOD</span></h2>
+              <h2 className="text-2xl font-bold text-white">Maricá <span className='text-black'>FOOD</span></h2>
               <p className="text-black-400 text-sm mt-2">O melhor sabor da cidade!</p>
             </Link>
           </div>

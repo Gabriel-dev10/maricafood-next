@@ -77,7 +77,7 @@ function App() {
             ${isLogin ? '-right-1/2' : 'right-0'}`}>
             <h1 className="text-3xl font-bold mb-4">MaricáFOOD!</h1>
             <p className="mb-6">Já tem uma conta?</p>
-            <button className="w-40 h-12 border-2 border-white rounded-lg text-white font-semibold hover:bg-white/10 transition-colors cursor-pointer">
+            <button onClick={toggleForm} className="w-40 h-12 border-2 border-white rounded-lg text-white font-semibold hover:bg-white/10 transition-colors cursor-pointer">
               Login
             </button>
           </div>

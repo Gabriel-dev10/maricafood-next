@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Search, Filter, ChevronDown, Clock, CheckCircle2, XCircle, AlertCircle, Eye, Printer, Download } from 'lucide-react';
+import { Search, Filter, ChevronDown, Clock, CheckCircle2, XCircle, AlertCircle, Eye, Printer} from 'lucide-react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
@@ -94,8 +94,8 @@ function App() {
     <div>
       <Navbar />
       <div className="min-h-screen bg-gray-50">
-        {/* Main Content */}
-        <main className="max-w-7xl mx-auto p-6">
+
+        <div className="max-w-7xl mx-auto p-6">
           <div className="bg-yellow-500 p-4 rounded-lg flex justify-between items-center text-white mb-6">
             <span className="text-xl font-bold">Painel do Restaurante</span>
             <button className="bg-white text-yellow-500 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
@@ -113,10 +113,6 @@ function App() {
                 <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50">
                   <Printer className="w-5 h-5" />
                   Imprimir
-                </button>
-                <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50">
-                  <Download className="w-5 h-5" />
-                  Exportar
                 </button>
               </div>
             </div>
@@ -222,7 +218,7 @@ function App() {
               </table>
             </div>
           </div>
-        </main>
+        </div>
       </div>
       <Footer />
     </div>
