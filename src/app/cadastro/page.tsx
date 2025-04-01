@@ -29,7 +29,7 @@ function App() {
             <div className="text-right mb-6">
               <a href="#" className="text-sm text-gray-600 hover:text-[#7494ec]">Esqueceu a senha?</a>
             </div>
-            <button onClick={() => router.push('/')} className="w-full h-12 rounded-lg text-white font-semibold shadow bg-yellow-500 transition-colors cursor-pointer">
+            <button className="w-full h-12 rounded-lg text-white font-semibold shadow bg-yellow-500 transition-colors cursor-pointer">
               Login
             </button>
           </form>
@@ -49,7 +49,7 @@ function App() {
               <Mail className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             </div>
             <div className="relative mb-6">
-              <input type="password" placeholder="Password" className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" required />
+              <input type="password" placeholder="Senha" className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" required />
               <Lock className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             </div>
             <button onClick={() => router.push('/')} className="w-full h-12  bg-yellow-500 rounded-lg text-white font-semibold shadow hover:bg-[#8d8c8c9a] transition-colors cursor-pointer">
