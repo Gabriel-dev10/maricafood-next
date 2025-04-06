@@ -1,0 +1,87 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function FormEntregador() {
+  const [mostrarPopup, setMostrarPopup] = useState(false);
+  const router = useRouter();
+
+  const handleVerificarClick = () => {
+    setMostrarPopup(true);
+  };
+
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md p-6 bg-white rounded shadow-md">
+        <h2 className="text-2xl font-bold text-center text-[#FFA500] mb-6">
+          Informações Principais
+        </h2>
+
+        <div className="space-y-4">
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="endereco"
+            placeholder="Endereço"
+            type="text"
+          />
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="idade"
+            placeholder="Idade"
+            type="number"
+          />
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="cnh"
+            placeholder="Número da CNH"
+            type="text"
+          />
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="cpf"
+            placeholder="CPF"
+            type="text"
+          />
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="rg"
+            placeholder="RG"
+            type="text"
+          />
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="raca"
+            placeholder="Raça"
+            type="text"
+          />
+        </div>
+
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={handleVerificarClick}
+            className="bg-[#FFA500] text-white font-semibold py-2 px-6 rounded hover:bg-orange-600 transition"
+          >
+            Verificar Aptidão
+          </button>
+        </div>
+      </div>
+
+    
+      {mostrarPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-md max-w-sm text-center">
+            <h3 className="text-lg font-semibold mb-4 text-[#FFA500]">Verifique seu e-mail</h3>
+            <p className="mb-4">Enviamos um link para o seu e-mail. Clique em OK para continuar.</p>
+            <button
+              onClick={() => router.push('/PaginaEntregador')}
+              className="bg-[#FFA500] text-white px-6 py-2 rounded hover:bg-orange-600 transition"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
