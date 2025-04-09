@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+
 export default function FormEntregador() {
   const [mostrarPopup, setMostrarPopup] = useState(false);
   const router = useRouter();
@@ -47,12 +48,6 @@ export default function FormEntregador() {
             className="w-full border border-gray-300 rounded px-3 py-2"
             name="rg"
             placeholder="RG"
-            type="text"
-          />
-          <input
-            className="w-full border border-gray-300 rounded px-3 py-2"
-            name="raca"
-            placeholder="Raça"
             type="text"
           />
         </div>
