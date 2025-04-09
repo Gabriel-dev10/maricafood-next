@@ -1,177 +1,88 @@
-'use client'
+import React from "react";
+import {User, Bell} from "lucide-react";
+import Link from 'next/link';
 
-import React, { useState } from 'react'
-
-const pedidosIniciais = [
-  {
-    id: 1,
-    NomeCliente: 'Maria Eduarda',
-    cliente: 'Naturals',
-    endereco: 'Rua das Palmeiras, 45 - São José, Maricá',
-    telefone: '21 99777-3344',
-    pagamento: 'Cartão de Débito - Mumbuca',
-    produtos: [
-      { nome: 'Sanduíche Natural de Frango', preco: 18.5 },
-      { nome: 'Água de Coco 300ml', preco: 4.0 },
-    ],
-    entrega: 5.5,
-    data: '05/04 17:00',
-    status: 'disponivel',
-  },
-  {
-    id: 2,
-    NomeCliente: 'Carlos',
-    cliente: 'Chef Kiss',
-    endereco: 'Av. Francisco Sabino da Costa, 89 - Centro, Maricá',
-    telefone: '21 99666-2211',
-    pagamento: 'PIX',
-    produtos: [
-      { nome: 'Combo Sushi (12 peças)', preco: 42.0 },
-      { nome: 'Refrigerante 600ml', preco: 6.0 },
-    ],
-    entrega: 7.0,
-    data: '05/04 17:10',
-    status: 'disponivel',
-  },
-  {
-    id: 3,
-    NomeCliente: 'Jessica',
-    cliente: 'Tal Burguer',
-    endereco: 'Av. Roberto Silveira, 123 - Centro, Maricá',
-    telefone: '21 99888-1122',
-    pagamento: 'Dinheiro (troco para R$ 100,00)',
-    produtos: [
-      { nome: 'X-Tudo Completo', preco: 29.9 },
-      { nome: 'Batata Frita Média', preco: 9.5 },
-    ],
-    entrega: 7.5,
-    data: '05/04 17:45',
-    status: 'disponivel',
-  },
-]
-
-export default function PainelMotoboy() {
-  const [pedidos, setPedidos] = useState(pedidosIniciais)
-  const [pedidoSelecionado, setPedidoSelecionado] = useState(pedidos[0])
-
-  const aceitarEntrega = () => {
-    setPedidos((prev) =>
-      prev.map((p) =>
-        p.id === pedidoSelecionado.id ? { ...p, status: 'em-entrega' } : p
-      )
-    )
-  }
-
-  const pedidosDisponiveis = pedidos.filter((p) => p.status === 'disponivel')
-
+export default function PaginaEntregador() {
   return (
-    <div className="flex h-screen bg-[#f8f8f8] font-sans">
-      <aside className="w-1/4 bg-white p-6 border-r border-gray-200 overflow-y-auto shadow-md">
-        <h2 className="text-xl font-bold text-[#FFA500] mb-6"> Olá José, <br /> Pedidos Disponíveis</h2>
-        {pedidosDisponiveis.length === 0 && (
-          <p className="text-sm text-gray-500">Nenhum pedido disponível.</p>
-        )}
-        {pedidosDisponiveis.map((pedido) => (
-          <div
-            key={pedido.id}
-            className="bg-[#fff0f0] p-4 rounded-lg shadow-sm mb-4 border-l-4 border-[#FFA500] cursor-pointer hover:bg-[#ffe5e5]"
-            onClick={() => setPedidoSelecionado(pedido)}
-          >
-            <p className="text-base font-semibold text-gray-800">
-              {pedido.cliente}
-            </p>
-            <p className="text-xs text-[#FFA500] mt-1">
-              Novo pedido ({pedido.data})
-            </p>
-          </div>
-        ))}
-      </aside>
-
-      <main className="flex-1 p-8 bg-white">
-        {pedidoSelecionado ? (
-          <div className="max-w-2xl mx-auto">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-[#333]">
-                {pedidoSelecionado.cliente}
-              </h2>
-              <p className="text-sm text-gray-400">
-                {pedidoSelecionado.data}
-              </p>
+    <div className="w-full min-h-screen bg-white flex flex-col">
+      <div className="flex items-center justify-between p-4 bg-yellow-500 shadow">
+        <div className="flex items-center gap-2">
+        <Link href="/PaginaEntregador/PainelEntrega">
+            <div className="bg-green-700 text-white px-3 py-1 rounded-full text-sm font-medium">
+                Disponível
             </div>
+        </Link>
+        </div>
+        <div className="flex gap-2 items-center">
+          <Link href='/PaginaEntregador/PerfilEntregador'>
+            <User className="w-6 h-6 text-gray-700 cursor-pointer"/>
+          </Link>
+          <Bell className="w-6 h-6 text-gray-700"/>
+        </div>
+      </div>
 
-            <div className="bg-yellow-100 text-yellow-800 p-4 rounded-md mb-6 border-l-4 border-yellow-500 text-sm">
-              Pedido disponível para entrega.
-              <span className="ml-2 underline cursor-pointer text-blue-600">
-                [Ver no Mapa]
-              </span>
-            </div>
+      <div className="p-3 text-sm bg-green-50 text-green-700 text-center border-b border-green-200">
+        Estamos atualizando a suas entregas
+      </div>
 
-            <section className="mb-6">
-              <h3 className="font-semibold text-[#333] mb-1">Cliente</h3>
-              <p className="text-sm text-gray-700">{pedidoSelecionado.NomeCliente}</p>
-            </section>
+      <div className="relative w-full h-56">
+        <img
+          src="/mapa.jpg"
+          alt="Mapa"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-            <section className="mb-6">
-              <h3 className="font-semibold text-[#333] mb-1">Endereço de Entrega</h3>
-              <p className="text-sm text-gray-700">{pedidoSelecionado.endereco}</p>
-              <p className="text-sm text-gray-700">{pedidoSelecionado.telefone}</p>
-            </section>
-
-            <section className="mb-6">
-              <h3 className="font-semibold text-[#333] mb-1">Pagamento</h3>
-              <p className="text-sm text-gray-700">{pedidoSelecionado.pagamento}</p>
-            </section>
-
-            <section className="mb-6">
-              <h3 className="font-semibold text-[#333] mb-2">Itens do Pedido</h3>
-              <ul className="text-sm text-gray-700">
-                {pedidoSelecionado.produtos.map((item, index) => (
-                  <li key={index} className="flex justify-between py-1">
-                    <span>{item.nome}</span>
-                    <span>R$ {item.preco.toFixed(2)}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="border-t mt-4 pt-3">
-                <div className="flex justify-between text-sm">
-                  <span>Subtotal</span>
-                  <span>
-                    R${' '}
-                    {pedidoSelecionado.produtos
-                      .reduce((acc, cur) => acc + cur.preco, 0)
-                      .toFixed(2)}
-                  </span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span>Entrega</span>
-                  <span>R$ {pedidoSelecionado.entrega.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between text-base font-bold mt-2">
-                  <span>Total</span>
-                  <span>
-                    R${' '}
-                    {(
-                      pedidoSelecionado.produtos.reduce(
-                        (acc, cur) => acc + cur.preco,
-                        0
-                      ) + pedidoSelecionado.entrega
-                    ).toFixed(2)}
-                  </span>
-                </div>
-              </div>
-            </section>
-
-            <button
-              className="w-full bg-[#FFA500] text-white py-3 rounded-lg font-semibold hover:bg-[#e84343] transition-all"
-              onClick={aceitarEntrega}
-            >
-              Aceitar Entrega
-            </button>
+      <div className="bg-white m-4 p-4 rounded-xl shadow">
+        <h2 className="font-semibold mb-2 text-lg">Novidades</h2>
+        <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg border mt-10">
+          <div>
+            <div className="font-medium">Seguro Pessoal</div>
+            <div className="text-sm text-gray-500">Encontre a proteção ideal pra você</div>
           </div>
-        ) : (
-          <p className="text-center text-gray-500">Selecione um pedido à esquerda.</p>
-        )}
-      </main>
+          <div className="text-red-500 text-xl">›</div>
+        </div>
+      </div>
+
+      <div className="bg-white m-4 p-4 rounded-xl shadow">
+        <div className="flex justify-between items-center mb-2">
+          <h2 className="font-semibold text-lg">Suas atividades</h2>
+          <a href="#" className="text-sm text-red-500 font-medium">Ver extrato</a>
+        </div>
+        <div className="grid grid-cols-2 gap-4 text-sm">
+          <div>
+            <div className="text-gray-500">Ganhos de hoje</div>
+            <div className="text-xl font-semibold">R$ 120,00</div>
+          </div>
+          <div>
+            <div className="text-gray-500">Você fez</div>
+            <div className="text-xl font-semibold">R$ 12,00</div>
+            <div className="text-sm text-gray-500">por hora</div>
+          </div>
+          <div>
+            <div className="text-gray-500">Rotas aceitas</div>
+            <div className="text-xl font-semibold">23</div>
+          </div>
+          <div>
+            <div className="text-gray-500">Finalizadas</div>
+            <div className="text-xl font-semibold">20</div>
+          </div>
+          <div>
+            <div className="text-gray-500">Recusadas</div>
+            <div className="text-xl font-semibold">2</div>
+          </div>
+          <div>
+            <div className="text-gray-500">Kms rodados</div>
+            <div className="text-xl font-semibold">56</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="px-4 pb-6">
+        <div className="bg-green-100 text-green-800 rounded-xl p-3 text-sm text-center">
+          Seu ganho mais recente foi às 15:45 — <strong>R$ 9,00</strong>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
