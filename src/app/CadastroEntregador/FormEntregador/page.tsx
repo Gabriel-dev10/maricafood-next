@@ -69,7 +69,7 @@ export default function FormEntregador() {
             <h3 className="text-lg font-semibold mb-4 text-[#FFA500]">Verifique seu e-mail</h3>
             <p className="mb-4">Enviamos um link para o seu e-mail. Clique em OK para continuar.</p>
             <button
-              onClick={() => router.push('/PaginaEntregador')}
+              onClick={() => router.push('/PaginaEntregador/LoginEntregador')}
               className="bg-[#FFA500] text-white px-6 py-2 rounded hover:bg-orange-600 transition"
             >
               OK

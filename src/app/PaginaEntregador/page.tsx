@@ -9,7 +9,7 @@ export default function PaginaEntregador() {
         <div className="flex items-center gap-2">
         <Link href="/PaginaEntregador/PainelEntrega">
             <div className="bg-green-700 text-white px-3 py-1 rounded-full text-sm font-medium">
-                Disponível
+                Menu Entregas
             </div>
         </Link>
         </div>
@@ -40,14 +40,14 @@ export default function PaginaEntregador() {
             <div className="font-medium">Seguro Pessoal</div>
             <div className="text-sm text-gray-500">Encontre a proteção ideal pra você</div>
           </div>
-          <div className="text-red-500 text-xl">›</div>
+          <div className="text-yellow-500text-xl">›</div>
         </div>
       </div>
 
       <div className="bg-white m-4 p-4 rounded-xl shadow">
         <div className="flex justify-between items-center mb-2">
           <h2 className="font-semibold text-lg">Suas atividades</h2>
-          <a href="#" className="text-sm text-red-500 font-medium">Ver extrato</a>
+          <a href="#" className="text-sm text-yellow-500 font-medium">Ver extrato</a>
         </div>
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
