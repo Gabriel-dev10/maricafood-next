@@ -49,11 +49,13 @@ export default function FormEntregador() {
             placeholder="RG"
             type="text"
           />
+          <div>
+            <h1 className="font-semibold mb-2 text-black">Envie uma foto</h1>
+          </div>
           <input
-            className="w-full border border-gray-300 rounded px-3 py-2"
-            name="raca"
-            placeholder="Raça"
-            type="text"
+            type="file"
+            accept="image/*"
+            className="w-full border border-gray-300 rounded px-3 py-2 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 hover:file:bg-blue-100"
           />
         </div>
 
@@ -69,7 +71,7 @@ export default function FormEntregador() {
 
     
       {mostrarPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+        <div className="fixed inset-0 backdrop-blur-sm bg-black/20 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-md max-w-sm text-center">
             <h3 className="text-lg font-semibold mb-4 text-[#FFA500]">Verifique seu e-mail</h3>
             <p className="mb-4">Enviamos um link para o seu e-mail. Clique em OK para continuar.</p>
