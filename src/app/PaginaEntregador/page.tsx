@@ -42,6 +42,14 @@ export default function PaginaEntregador() {
           </div>
           <div className="text-yellow-500text-xl">›</div>
         </div>
+        <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg border mt-10">
+          <div>
+            <div className="font-medium">Seguro Acidente</div>
+            <div className="text-sm text-gray-500">Encontre a proteção ideal pra você</div>
+          </div>
+          <div className="text-yellow-500text-xl">›</div>
+        </div>
+
       </div>
 
       <div className="bg-white m-4 p-4 rounded-xl shadow">
