@@ -2,10 +2,13 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function FormEntregador() {
   const [mostrarPopup, setMostrarPopup] = useState(false);
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [mostrarConfirmarSenha, setMostrarConfirmarSenha] = useState(false);
+
   const router = useRouter();
 
   const handleVerificarClick = () => {
@@ -20,18 +23,6 @@ export default function FormEntregador() {
         </h2>
 
         <div className="space-y-4">
-          <input
-            className="w-full border border-gray-300 rounded px-3 py-2"
-            name="endereco"
-            placeholder="Endereço"
-            type="text"
-          />
-          <input
-            className="w-full border border-gray-300 rounded px-3 py-2"
-            name="idade"
-            placeholder="Idade"
-            type="number"
-          />
           <input
             className="w-full border border-gray-300 rounded px-3 py-2"
             name="cnh"
@@ -50,6 +41,47 @@ export default function FormEntregador() {
             placeholder="RG"
             type="text"
           />
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="email"
+            placeholder="Email"
+            type="text"
+          />
+
+          {/* Campo de senha com ícone */}
+          <div className="relative">
+            <input
+              className="w-full border border-gray-300 rounded px-3 py-2 pr-10"
+              name="senha"
+              placeholder="Senha"
+              type={mostrarSenha ? 'text' : 'password'}
+            />
+            <button
+              type="button"
+              onClick={() => setMostrarSenha(!mostrarSenha)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600"
+            >
+              {mostrarSenha ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
+
+          {/* Campo confirmar senha com ícone */}
+          <div className="relative">
+            <input
+              className="w-full border border-gray-300 rounded px-3 py-2 pr-10"
+              name="confirmarsenha"
+              placeholder="Confirme sua senha"
+              type={mostrarConfirmarSenha ? 'text' : 'password'}
+            />
+            <button
+              type="button"
+              onClick={() => setMostrarConfirmarSenha(!mostrarConfirmarSenha)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600"
+            >
+              {mostrarConfirmarSenha ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
+
           <div>
             <h1 className="font-semibold mb-2 text-black">Envie uma foto</h1>
           </div>
@@ -70,7 +102,6 @@ export default function FormEntregador() {
         </div>
       </div>
 
-    
       {mostrarPopup && (
         <div className="fixed inset-0 backdrop-blur-sm bg-black/20 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-md max-w-sm text-center">
