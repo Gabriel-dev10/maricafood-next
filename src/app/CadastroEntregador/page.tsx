@@ -11,19 +11,36 @@ const EntregadorPage = () => {
         
         <form className="space-y-4">
           <div>
-            <label className="block font-medium text-gray-700">Nome Completo</label>
-            <input
-              type="text"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFA500]"
-            />
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="nome"
+            placeholder="Nome completo"
+            type="text"
+          />
           </div>
-
           <div>
-            <label className="block font-medium text-gray-700">Telefone</label>
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="endereco"
+            placeholder="Endereço"
+            type="text"
+          />
+          </div>
+          <div>
+          <input
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="Idade"
+            placeholder="Idade"
+            type="number"
+          />
+          </div>
+          <div>
             <input
-              type="tel"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFA500]"
-            />
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            name="tel"
+            placeholder="Telefone"
+            type="text"
+          />
           </div>
 
           <div>
