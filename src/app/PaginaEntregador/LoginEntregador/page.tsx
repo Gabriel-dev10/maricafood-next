@@ -54,7 +54,7 @@ function LoginEntregador() {
             </a>
           </div>
 
-          <Link href="/entregador/dashboard">
+          <Link href="/PaginaEntregador">
             <button className="w-full h-12 rounded-lg text-white font-semibold shadow bg-yellow-500 transition-colors cursor-pointer">
               Entrar
             </button>
