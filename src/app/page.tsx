@@ -7,6 +7,7 @@ import Card from "./components/card";
 import SecaoMeio from "./components/SecaoMeio";
 import ButtonCard from "./components/ButtonCard";
 import Footer from "./components/footer";
+import Image from 'next/image';
 
 export default function Home() {
     const router = useRouter();
@@ -53,7 +54,16 @@ export default function Home() {
           </div>
           {!isMobile && (
             <div className="md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
-              <img className="max-h-120" src="logo.png" alt="logo" />
+              <div className="relative max-h-120 w-auto">
+                <Image
+                  src="/logo.png"
+                  alt="logo"
+                  width={400} // você pode ajustar esse valor
+                  height={400}
+                  className="object-contain h-full w-auto"
+                  priority
+                />
+              </div>
             </div>
           )}
         </div>

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 type Produto = {
   id: number;
@@ -23,11 +24,15 @@ const CardChefkiss = ({ produtos }: CardPopularesProps) => {
             key={item.id}
             className="bg-white shadow-md rounded-lg p-4 text-center border border-gray-200"
           >
-            <img
-              src={item.imagem}
-              alt={item.nome}
-              className="w-60 h-60 mx-auto object-cover rounded-4xl"
-            />
+            <div className="w-full max-w-[160px] sm:max-w-[200px] aspect-square mx-auto relative rounded-2xl overflow-hidden">
+              <Image
+                src={item.imagem}
+                alt={item.nome}
+                fill
+                className="object-cover"
+                sizes="(min-width: 640px) 200px, 100vw"
+              />
+            </div>
             <h3 className="text-lg font-semibold mt-2">{item.nome}</h3>
             <p className="text-gray-600 text-sm">
               {item.distancia} - {item.tempo}

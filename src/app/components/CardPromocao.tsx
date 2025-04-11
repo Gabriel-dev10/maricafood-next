@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const promocao = [
   {
     id: 1,
@@ -45,11 +47,13 @@ const CardPromocao = () => {
             key={item.id}
             className="bg-white shadow-md rounded-lg p-4 text-center border border-gray-200"
           >
-            <img
-              src={item.imagem}
-              alt={item.nome}
-              className="w-50 h-50 mx-auto object-contain"
-            />
+          <Image
+            src={item.imagem}
+            alt={item.nome}
+            width={200} // equivalente a w-50
+            height={200} // equivalente a h-50
+            className="mx-auto object-contain"
+          />
             <h3 className="text-lg font-semibold mt-2">{item.nome}</h3>
             <p className="text-gray-600 text-sm">
               {item.distancia} - {item.tempo}

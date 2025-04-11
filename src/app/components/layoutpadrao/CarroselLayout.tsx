@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -38,11 +39,15 @@ const Carrossel = () => {
       >
         {imagens.map((img) => (
           <SwiperSlide key={img.id}>
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full object-cover rounded-lg h-[200px] md:h-[400px]"  
-            />
+            <div className="relative w-full h-[200px] md:h-[400px] rounded-lg overflow-hidden">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover rounded-lg"
+                sizes="(min-width: 768px) 800px, 100vw"
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

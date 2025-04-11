@@ -18,7 +18,7 @@ type Produto = {
   preco: string;
 };
 
-const ChefKissPage = () => {
+const LaPastaPage = () => {
   const [produtos, setProdutos] = useState<Produto[]>([]);
   const [produtos2, setProdutos2] = useState<Produto[]>([]);
   const [produtos3, setProdutos3] = useState<Produto[]>([]);
@@ -141,15 +141,15 @@ const ChefKissPage = () => {
       <div className="py-8 bg-gray-100 flex flex-col items-center text-center">
         <div className="relative w-60 h-60 sm:w-80 sm:h-80 rounded-full overflow-hidden">
           <Image
-            src="/chefkiss.png"
+            src="/restauranteImg/lapasta.png"
             alt="Logo do Restaurante Naturals"
             fill
             className="object-cover"
           />
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-4">Restaurante ChefKiss</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-4">Restaurante LaPasta</h1>
         <p className="text-md sm:text-lg text-gray-600 mt-4 max-w-lg">
-          Bem-vindo ao ChefKiss! Aqui você encontra uma seleção deliciosa de pratos, petiscos e bebidas, preparados com carinho e qualidade.
+          Bem-vindo ao LaPasta! Aqui você encontra uma seleção deliciosa de pratos, petiscos e bebidas, preparados com carinho e qualidade.
         </p>
         <div className="mt-6 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
           <div>
@@ -162,7 +162,7 @@ const ChefKissPage = () => {
           </div>
           <div>
             <h3 className="font-semibold text-gray-800">Avaliação</h3>
-            <p className="text-gray-600">4.5 ★</p>
+            <p className="text-gray-600">4.7 ★</p>
           </div>
         </div>
       </div>
@@ -174,4 +174,4 @@ const ChefKissPage = () => {
   );
 };
 
-export default ChefKissPage;
+export default LaPastaPage;
