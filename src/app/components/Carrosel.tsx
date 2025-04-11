@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 interface CarrosselProps {
@@ -29,11 +30,13 @@ const Carrossel = ({ imagens, className = "" }: CarrosselProps) => {
         style={{ transform: `translateX(-${slideIndex * 100}%)` }}
       >
         {imagens.map((src, index) => (
-          <img 
-            key={index} 
-            src={src} 
-            alt={`imgcarrosel-${index}`} 
-            className="w-[750px] h-full object-cover mx-auto"
+          <Image
+            key={index}
+            src={src}
+            alt={`imgcarrosel-${index}`}
+            width={750}
+            height={500} // ajuste conforme necessário
+            className="h-full object-cover mx-auto"
           />
         ))}
       </div>    

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 import { useRouter } from 'next/navigation'; 
 
@@ -10,7 +11,7 @@ const restaurante = [
     imagem: "/restauranteImg/talburguer.png",
     info: "Hambúrgueres artesanais e suculentos.",
     local: "Areal",
-    link: "/restaurantes/tal-burguer",  
+    link: "/restaurantes/talburguer",  
   },
   {
     id: 2,
@@ -18,7 +19,7 @@ const restaurante = [
     imagem: "/restauranteImg/lapasta.png",
     info: "Massas frescas com molhos tradicionais.",
     local: "Mumbuca",
-    link: "/restaurantes/la-pasta", 
+    link: "/restaurantes/lapasta", 
   },
   {
     id: 3,
@@ -54,10 +55,12 @@ const CardRestaurante = () => {
             key={item.id}
             className="bg-white shadow-md rounded-lg p-4 text-center border border-gray-200"
           >
-            <img
+            <Image
               src={item.imagem}
               alt={item.nome}
-              className="w-60 h-60 mx-auto object-contain"
+              width={240} // equivalente a w-60
+              height={240} // equivalente a h-60
+              className="mx-auto object-contain"
             />
             <h3 className="text-lg font-semibold mt-2">{item.nome}</h3>
             <p className="text-gray-600 text-sm">{item.info}</p>
