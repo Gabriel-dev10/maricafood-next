@@ -35,15 +35,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="hidden md:flex space-x-6">
-          <Link href="#" className="text-black text-lg hover:text-white transition">
-            Vantagens
-          </Link>
-          <Link href="#" className="text-black text-lg hover:text-white transition">
-            Parceiro
-          </Link>
-        </div>
-
         <div className="relative hidden md:block">
           <input
             type="text"

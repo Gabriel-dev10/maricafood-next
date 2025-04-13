@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
+import { useRouter } from 'next/navigation';
 
 export default function LayoutSelector() {
+  const router = useRouter();
   const [selectedLayout, setSelectedLayout] = useState<string | null>(null);
 
   const layouts = [
@@ -18,7 +19,6 @@ export default function LayoutSelector() {
   return (
     <div>
       <div className="flex flex-col items-center justify-center mb-20">
-        <Navbar />
         <div className="mt-15 text-center px-4">
           <h1 className="text-3xl font-bold mb-4 text-gray-800 mt-10">Escolha o Layout do Restaurante</h1>
           <p className="text-lg mb-8 text-gray-600">Selecione o layout que deseja usar para o seu restaurante. Clique nas opções abaixo para visualizar.</p>
@@ -54,11 +54,19 @@ export default function LayoutSelector() {
               />
               <button
                 className="absolute top-4 right-4 bg-white p-2 rounded-full text-black"
+                 onClick={() => {
+                 router.push('/components/Layout1');
+              }}
+              >
+                ✓
+              </button>
+            </div>
+            <button
+                className="absolute top-4 right-4 bg-white p-2 rounded-full text-black"
                 onClick={() => setSelectedLayout(null)}
               >
                 X
               </button>
-            </div>
           </div>
         )}
       </div>

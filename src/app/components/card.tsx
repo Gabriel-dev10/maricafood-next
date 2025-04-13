@@ -24,7 +24,7 @@ const Card = () => {
             </p>
           </div>
           <div className="flex justify-center mt-4">
-            <Buttoncard texto="Cadastre-se"/>
+            <Buttoncard texto="Cadastre-se" href="/CadastroRestaurante"/>
           </div>
         </div>
       </div>

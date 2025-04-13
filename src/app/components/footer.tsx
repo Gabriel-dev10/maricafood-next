@@ -17,11 +17,6 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-4">
-            <Link href="/escolhaLayout" className="text-black-300 hover:text-red-500 transition text-lg cursor-pointer">Layout</Link>
-            <Link href="/carrinhoChefkiss" className="text-black-300 hover:text-red-500 transition text-lg cursor-pointer">Carrinho Chefkiss</Link>
-          </div>
-
           <div className="flex space-x-4">
             <a href="" target="_blank" className="text-black-300 hover:text-red-500 transition text-2xl cursor-pointer">
               <FaFacebook />
