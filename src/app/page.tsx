@@ -81,7 +81,7 @@ export default function Home() {
             descontos exclusivos, promoções ou cupons para atrair mais clientes,
             enquanto a plataforma oferece relatórios detalhados sobre vendas.
           </p>
-          <ButtonCard texto="Parcerio" />
+          <ButtonCard texto="Seja Parceiro" href="/FormParceiro"/>
         </div>
         <Footer />
       </div>
