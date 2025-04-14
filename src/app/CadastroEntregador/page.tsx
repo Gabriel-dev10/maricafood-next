@@ -55,7 +55,6 @@ const EntregadorPage = () => {
             </select>
           </div>
 
-          {/* Botão centralizado */}
           <div className="flex justify-center pt-2">
             <Link
               href="/CadastroEntregador/FormEntregador"

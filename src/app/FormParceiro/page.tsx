@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 const ParceiroForm = () => {
-  const [form] = useState({
+  const [form, setForm] = useState({
     nome: "",
     email: "",
     telefone: "",
@@ -13,6 +13,11 @@ const ParceiroForm = () => {
     cidade: "Maricá",
     mensagem: "",
   });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
@@ -27,6 +32,7 @@ const ParceiroForm = () => {
             name="nome"
             placeholder="Nome completo"
             value={form.nome}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -36,6 +42,7 @@ const ParceiroForm = () => {
             name="email"
             placeholder="Email"
             value={form.email}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -45,6 +52,7 @@ const ParceiroForm = () => {
             name="telefone"
             placeholder="Telefone / WhatsApp"
             value={form.telefone}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -54,6 +62,7 @@ const ParceiroForm = () => {
             name="nomeEstabelecimento"
             placeholder="Nome do Estabelecimento"
             value={form.nomeEstabelecimento}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -61,6 +70,7 @@ const ParceiroForm = () => {
           <select
             name="tipoEstabelecimento"
             value={form.tipoEstabelecimento}
+            onChange={handleChange}
             className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFA500]"
             required
           >
@@ -76,6 +86,7 @@ const ParceiroForm = () => {
             name="cnpj"
             placeholder="CNPJ"
             value={form.cnpj}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -84,6 +95,7 @@ const ParceiroForm = () => {
             name="mensagem"
             placeholder="Mensagem (opcional)"
             value={form.mensagem}
+            onChange={handleChange}
             rows={3}
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
