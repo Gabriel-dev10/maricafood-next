@@ -70,9 +70,6 @@ export default function PainelMotoboy() {
   return (
     <div className="flex h-screen bg-[#f8f8f8] font-sans">
       <aside className="w-1/4 bg-white p-6 border-r border-gray-200 overflow-y-auto shadow-md">
-        <h2 className="text-xl font-bold text-[#FFA500] mb-6">
-          Olá José, <br />Pedidos Disponíveis
-        </h2>
         <h2 className="text-xl font-bold text-[#FFA500] mb-6"> Olá Guilherme, <br /> Pedidos Disponíveis</h2>
         {pedidosDisponiveis.length === 0 && (
           <p className="text-sm text-gray-500">Nenhum pedido disponível.</p>
