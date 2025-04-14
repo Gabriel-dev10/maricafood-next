@@ -73,6 +73,7 @@ export default function PainelMotoboy() {
         <h2 className="text-xl font-bold text-[#FFA500] mb-6">
           Olá José, <br />Pedidos Disponíveis
         </h2>
+        <h2 className="text-xl font-bold text-[#FFA500] mb-6"> Olá Guilherme, <br /> Pedidos Disponíveis</h2>
         {pedidosDisponiveis.length === 0 && (
           <p className="text-sm text-gray-500">Nenhum pedido disponível.</p>
         )}
