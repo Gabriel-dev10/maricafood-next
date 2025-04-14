@@ -30,23 +30,23 @@ export default function PerfilEntregador() {
         <div className="bg-white p-4 rounded-xl shadow mb-4">
           <div className="flex justify-between items-center">
             <p className="font-medium">Dados básicos</p>
-            <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">Aprovado</span>
+            <span className="bg-green-200 text-green-700 text-xs px-2 py-1 rounded-full">Aprovado</span>
           </div>
-          <p className="text-xs text-gray-500 mt-1">Concluído em 08/06/2023</p>
+          <p className="text-xs text-green-500 mt-1">Concluído em 08/06/2023</p>
         </div>
 
         <div className="bg-white p-4 rounded-xl shadow mb-4">
           <div className="flex justify-between items-center">
             <p className="font-medium">Foto do rosto</p>
-            <span className="bg-yellow-100 text-green-700 text-xs px-2 py-1 rounded-full">Aprovado</span>
+            <span className="bg-green-200 text-green-700 text-xs px-2 py-1 rounded-full">Aprovado</span>
           </div>
-          <p className="text-xs text-gray-500 mt-1">Aprovado</p>
+          <p className="text-xs text-green-500 mt-1">Aprovado</p>
         </div>
 
         <div className="bg-white p-4 rounded-xl shadow mb-4">
           <div className="flex justify-between items-center">
             <p className="font-medium">Foto do documento (CNH)</p>
-            <span className="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">Rejeitado</span>
+            <span className="bg-red-200 text-red-700 text-xs px-2 py-1 rounded-full">Rejeitado</span>
           </div>
           <p className="text-xs text-gray-500 mt-1">Concluído em 08/06/2023</p>
           <p className="text-xs text-red-500 mt-1">O documento enviado está vencido.<br/>Atualize e envie novamente</p>
@@ -56,7 +56,7 @@ export default function PerfilEntregador() {
         <div className="bg-white p-4 rounded-xl shadow mb-4">
           <div className="flex justify-between items-center">
             <p className="font-medium">Dados bancários</p>
-            <span className="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full">Em análise</span>
+            <span className="bg-yellow-200 text-yellow-700 text-xs px-2 py-1 rounded-full">Em análise</span>
           </div>
           <p className="text-xs text-gray-500 mt-1">Aguardando validação</p>
         </div>
@@ -64,7 +64,7 @@ export default function PerfilEntregador() {
         <div className="bg-white p-4 rounded-xl shadow mb-6">
           <div className="flex justify-between items-center">
             <p className="font-medium">Liberação da região</p>
-            <span className="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full">Em análise</span>
+            <span className="bg-yellow-200 text-yellow-700 text-xs px-2 py-1 rounded-full">Em análise</span>
           </div>
           <p className="text-xs text-gray-500 mt-1">Aguardando vaga na praça escolhida</p>
         </div>

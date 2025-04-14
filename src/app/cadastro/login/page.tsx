@@ -3,6 +3,7 @@
 import { Lock, User } from 'lucide-react';
 
 function login() {
+  
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#d8c30a] to-[#c1c2c4] flex items-center justify-center p-5">
       <div className="w-[400px] bg-white rounded-[30px] shadow-lg p-10">
