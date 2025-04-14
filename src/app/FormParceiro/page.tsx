@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 const ParceiroForm = () => {
-  const [form] = useState({
+  const router = useRouter();
+  const [form, setForm] = useState({
     nome: "",
     email: "",
     telefone: "",
@@ -14,6 +16,29 @@ const ParceiroForm = () => {
     mensagem: "",
   });
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Formulário enviado!");
+    setForm({
+      nome: "",
+      email: "",
+      telefone: "",
+      nomeEstabelecimento: "",
+      tipoEstabelecimento: "",
+      cnpj: "",
+      cidade: "Maricá",
+      mensagem: "",
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
@@ -21,12 +46,13 @@ const ParceiroForm = () => {
           Cadastro de Parceiro
         </h1>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="text"
             name="nome"
             placeholder="Nome completo"
             value={form.nome}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -36,6 +62,7 @@ const ParceiroForm = () => {
             name="email"
             placeholder="Email"
             value={form.email}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -45,6 +72,7 @@ const ParceiroForm = () => {
             name="telefone"
             placeholder="Telefone / WhatsApp"
             value={form.telefone}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -54,6 +82,7 @@ const ParceiroForm = () => {
             name="nomeEstabelecimento"
             placeholder="Nome do Estabelecimento"
             value={form.nomeEstabelecimento}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -61,6 +90,7 @@ const ParceiroForm = () => {
           <select
             name="tipoEstabelecimento"
             value={form.tipoEstabelecimento}
+            onChange={handleChange}
             className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFA500]"
             required
           >
@@ -76,6 +106,7 @@ const ParceiroForm = () => {
             name="cnpj"
             placeholder="CNPJ"
             value={form.cnpj}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded px-3 py-2"
             required
           />
@@ -84,12 +115,14 @@ const ParceiroForm = () => {
             name="mensagem"
             placeholder="Mensagem (opcional)"
             value={form.mensagem}
+            onChange={handleChange}
             rows={3}
             className="w-full border border-gray-300 rounded px-3 py-2"
           />
 
           <div className="flex justify-center pt-2">
             <button
+              onClick={() => router.push('/')}
               type="submit"
               className="bg-[#FFA500] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#e69500] transition"
             >

@@ -50,8 +50,8 @@ const CardPromocao = () => {
           <Image
             src={item.imagem}
             alt={item.nome}
-            width={200} // equivalente a w-50
-            height={200} // equivalente a h-50
+            width={200} 
+            height={200} 
             className="mx-auto object-contain"
           />
             <h3 className="text-lg font-semibold mt-2">{item.nome}</h3>
@@ -60,7 +60,7 @@ const CardPromocao = () => {
             </p>
             <p className="text-lg font-bold mt-2">{item.preco}</p>
             <button className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-2 px-4 rounded-lg mt-3 cursor-pointer">
-              Ver Restaurante
+              Adicionar ao carrinho
             </button>
           </div>
         ))}

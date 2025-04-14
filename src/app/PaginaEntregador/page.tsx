@@ -1,11 +1,25 @@
+'use client';
+
 import React from "react";
-import {User, Bell} from "lucide-react";
+import {User, Bell,} from "lucide-react";
+import { IoArrowBack } from 'react-icons/io5'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function PaginaEntregador() {
+  const router = useRouter()
   return (
     <div className="w-full min-h-screen bg-white flex flex-col">
       <div className="flex items-center justify-between p-4 bg-yellow-500 shadow">
+          <div className="flex items-center gap-2">
+            <button
+            onClick={() => router.push('/')}
+            className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#FFA500] transition-all"
+            >
+            <IoArrowBack size={20} />
+            Inicio
+          </button>
+        </div>
         <div className="flex items-center gap-2">
         <Link href="/PaginaEntregador/PainelEntrega">
             <div className="bg-green-700 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -25,31 +39,12 @@ export default function PaginaEntregador() {
         Estamos atualizando a suas entregas
       </div>
 
-      <div className="relative w-full h-56">
+      <div className="relative w-full h-70">
         <img
           src="/mapa.jpg"
           alt="Mapa"
           className="w-full h-full object-cover"
         />
-      </div>
-
-      <div className="bg-white m-4 p-4 rounded-xl shadow">
-        <h2 className="font-semibold mb-2 text-lg">Novidades</h2>
-        <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg border mt-10">
-          <div>
-            <div className="font-medium">Seguro Pessoal</div>
-            <div className="text-sm text-gray-500">Encontre a proteção ideal pra você</div>
-          </div>
-          <div className="text-yellow-500text-xl">›</div>
-        </div>
-        <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg border mt-10">
-          <div>
-            <div className="font-medium">Seguro Acidente</div>
-            <div className="text-sm text-gray-500">Encontre a proteção ideal pra você</div>
-          </div>
-          <div className="text-yellow-500text-xl">›</div>
-        </div>
-
       </div>
 
       <div className="bg-white m-4 p-4 rounded-xl shadow">
@@ -91,6 +86,23 @@ export default function PaginaEntregador() {
           Seu ganho mais recente foi às 15:45 — <strong>R$ 9,00</strong>
         </div>
       </div>
+      <div className="bg-white m-4 p-4 rounded-xl shadow">
+        <h2 className="font-semibold mb-2 text-lg">Novidades</h2>
+        <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg border mt-10">
+          <div>
+            <div className="font-medium">Seguro Pessoal</div>
+            <div className="text-sm text-gray-500">Encontre a proteção ideal pra você</div>
+          </div>
+          <div className="text-yellow-500text-xl">›</div>
+        </div>
+        <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg border mt-10">
+          <div>
+            <div className="font-medium">Seguro Acidente</div>
+            <div className="text-sm text-gray-500">Encontre a proteção ideal pra você</div>
+          </div>
+          <div className="text-yellow-500text-xl">›</div>
+        </div>
+        </div>
     </div>
   );
 }

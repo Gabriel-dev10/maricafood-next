@@ -29,7 +29,7 @@ function App() {
             <div className="text-right mb-6">
               <a href="#" className="text-sm text-gray-600 hover:text-[#7494ec]">Esqueceu a senha?</a>
             </div>
-            <button className="w-full h-12 rounded-lg text-white font-semibold shadow bg-yellow-500 transition-colors cursor-pointer">
+            <button onClick={() => router.push('/')} className="w-full h-12 rounded-lg text-white font-semibold shadow bg-yellow-500 transition-colors cursor-pointer">
               Login
             </button>
           </form>

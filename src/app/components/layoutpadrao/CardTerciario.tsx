@@ -39,7 +39,7 @@ const CardChefkiss = ({ produtos }: CardPopularesProps) => {
             </p>
             <p className="text-lg font-bold mt-2">{item.preco}</p>
             <button className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-2 px-4 rounded-lg mt-3">
-              Ver Restaurante
+              Adicionar ao carrinho
             </button>
           </div>
         ))}

@@ -58,8 +58,8 @@ const CardRestaurante = () => {
             <Image
               src={item.imagem}
               alt={item.nome}
-              width={240} // equivalente a w-60
-              height={240} // equivalente a h-60
+              width={240} 
+              height={240} 
               className="mx-auto object-contain"
             />
             <h3 className="text-lg font-semibold mt-2">{item.nome}</h3>

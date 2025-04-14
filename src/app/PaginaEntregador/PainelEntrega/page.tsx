@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import { IoArrowBack } from 'react-icons/io5'
+import { useRouter } from 'next/navigation'
 
 const pedidosIniciais = [
   {
@@ -52,12 +54,13 @@ const pedidosIniciais = [
 
 export default function PainelMotoboy() {
   const [pedidos, setPedidos] = useState(pedidosIniciais)
-  const [pedidoSelecionado, setPedidoSelecionado] = useState(pedidos[0])
+  const [pedidoSelecionado, setPedidoSelecionado] = useState<typeof pedidosIniciais[0] | null>(pedidos[0])
+  const router = useRouter()
 
   const aceitarEntrega = () => {
     setPedidos((prev) =>
       prev.map((p) =>
-        p.id === pedidoSelecionado.id ? { ...p, status: 'em-entrega' } : p
+        p.id === pedidoSelecionado?.id ? { ...p, status: 'em-entrega' } : p
       )
     )
   }
@@ -67,7 +70,9 @@ export default function PainelMotoboy() {
   return (
     <div className="flex h-screen bg-[#f8f8f8] font-sans">
       <aside className="w-1/4 bg-white p-6 border-r border-gray-200 overflow-y-auto shadow-md">
-        <h2 className="text-xl font-bold text-[#FFA500] mb-6"> Olá José, <br /> Pedidos Disponíveis</h2>
+        <h2 className="text-xl font-bold text-[#FFA500] mb-6">
+          Olá José, <br />Pedidos Disponíveis
+        </h2>
         {pedidosDisponiveis.length === 0 && (
           <p className="text-sm text-gray-500">Nenhum pedido disponível.</p>
         )}
@@ -77,26 +82,40 @@ export default function PainelMotoboy() {
             className="bg-[#fff0f0] p-4 rounded-lg shadow-sm mb-4 border-l-4 border-[#FFA500] cursor-pointer hover:bg-[#ffe5e5]"
             onClick={() => setPedidoSelecionado(pedido)}
           >
-            <p className="text-base font-semibold text-gray-800">
-              {pedido.cliente}
-            </p>
-            <p className="text-xs text-[#FFA500] mt-1">
-              Novo pedido ({pedido.data})
-            </p>
+            <p className="text-base font-semibold text-gray-800">{pedido.cliente}</p>
+            <p className="text-xs text-[#FFA500] mt-1">Novo pedido ({pedido.data})</p>
           </div>
         ))}
       </aside>
 
       <main className="flex-1 p-8 bg-white">
+        
+        <div className="mb-6">
+          <button
+            onClick={() => router.push('/PaginaEntregador')}
+            className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#FFA500] transition-all"
+          >
+            <IoArrowBack size={20} />
+            Voltar
+          </button>
+        </div>
+
         {pedidoSelecionado ? (
           <div className="max-w-2xl mx-auto">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-[#333]">
-                {pedidoSelecionado.cliente}
-              </h2>
-              <p className="text-sm text-gray-400">
-                {pedidoSelecionado.data}
-              </p>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setPedidoSelecionado(null)}
+                  className="text-[#FFA500] hover:text-[#e84343] transition-all"
+                  title="Voltar"
+                >
+                  <IoArrowBack size={24} />
+                </button>
+                <h2 className="text-2xl font-bold text-[#333]">
+                  {pedidoSelecionado.cliente}
+                </h2>
+              </div>
+              <p className="text-sm text-gray-400">{pedidoSelecionado.data}</p>
             </div>
 
             <div className="bg-yellow-100 text-yellow-800 p-4 rounded-md mb-6 border-l-4 border-yellow-500 text-sm">
