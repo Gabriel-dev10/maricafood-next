@@ -4,7 +4,20 @@ import React, { useState } from 'react'
 import { IoArrowBack } from 'react-icons/io5'
 import { useRouter } from 'next/navigation'
 
-const pedidosIniciais = [
+type Pedido = {
+  id: number
+  NomeCliente: string
+  cliente: string
+  endereco: string
+  telefone: string
+  pagamento: string
+  produtos: { nome: string; preco: number }[]
+  entrega: number
+  data: string
+  status: 'disponivel' | 'em-entrega'
+}
+
+const pedidosIniciais: Pedido[] = [
   {
     id: 1,
     NomeCliente: 'Maria Eduarda',
@@ -53,42 +66,49 @@ const pedidosIniciais = [
 ]
 
 export default function PainelMotoboy() {
-  const [pedidos, setPedidos] = useState(pedidosIniciais)
-  const [pedidoSelecionado, setPedidoSelecionado] = useState<typeof pedidosIniciais[0] | null>(pedidos[0])
+  const [pedidos, setPedidos] = useState<Pedido[]>(pedidosIniciais)
+  const [pedidoSelecionado, setPedidoSelecionado] = useState<Pedido | null>(pedidos[0])
   const router = useRouter()
 
   const aceitarEntrega = () => {
-    setPedidos((prev) =>
-      prev.map((p) =>
-        p.id === pedidoSelecionado?.id ? { ...p, status: 'em-entrega' } : p
+    if (pedidoSelecionado) {
+      setPedidos((prev) =>
+        prev.map((p) =>
+          p.id === pedidoSelecionado.id ? { ...p, status: 'em-entrega' } : p
+        )
       )
-    )
+    }
   }
 
   const pedidosDisponiveis = pedidos.filter((p) => p.status === 'disponivel')
 
   return (
-    <div className="flex h-screen bg-[#f8f8f8] font-sans">
-      <aside className="w-1/4 bg-white p-6 border-r border-gray-200 overflow-y-auto shadow-md">
-        <h2 className="text-xl font-bold text-[#FFA500] mb-6"> Olá Guilherme, <br /> Pedidos Disponíveis</h2>
-        {pedidosDisponiveis.length === 0 && (
+    <div className="flex flex-col md:flex-row w-full min-h-screen bg-[#f8f8f8] font-sans overflow-hidden">
+      {/* Sidebar */}
+      <aside className="w-full md:w-1/4 bg-white p-4 md:p-6 border-r border-gray-200 shadow-md">
+        <h2 className="text-xl font-bold text-[#FFA500] mb-4 md:mb-6">
+          Olá Guilherme, <br /> Pedidos Disponíveis
+        </h2>
+
+        {pedidosDisponiveis.length === 0 ? (
           <p className="text-sm text-gray-500">Nenhum pedido disponível.</p>
+        ) : (
+          pedidosDisponiveis.map((pedido) => (
+            <div
+              key={pedido.id}
+              className="bg-[#fff0f0] p-3 md:p-4 rounded-lg shadow-sm mb-4 border-l-4 border-[#FFA500] cursor-pointer hover:bg-[#ffe5e5]"
+              onClick={() => setPedidoSelecionado(pedido)}
+            >
+              <p className="text-base font-semibold text-gray-800">{pedido.cliente}</p>
+              <p className="text-xs text-[#FFA500] mt-1">Novo pedido ({pedido.data})</p>
+            </div>
+          ))
         )}
-        {pedidosDisponiveis.map((pedido) => (
-          <div
-            key={pedido.id}
-            className="bg-[#fff0f0] p-4 rounded-lg shadow-sm mb-4 border-l-4 border-[#FFA500] cursor-pointer hover:bg-[#ffe5e5]"
-            onClick={() => setPedidoSelecionado(pedido)}
-          >
-            <p className="text-base font-semibold text-gray-800">{pedido.cliente}</p>
-            <p className="text-xs text-[#FFA500] mt-1">Novo pedido ({pedido.data})</p>
-          </div>
-        ))}
       </aside>
 
-      <main className="flex-1 p-8 bg-white">
-        
-        <div className="mb-6">
+      {/* Conteúdo principal */}
+      <main className="w-full md:flex-1 p-4 md:p-8 bg-white overflow-hidden">
+        <div className="mb-4 md:mb-6">
           <button
             onClick={() => router.push('/PaginaEntregador')}
             className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#FFA500] transition-all"
@@ -99,16 +119,9 @@ export default function PainelMotoboy() {
         </div>
 
         {pedidoSelecionado ? (
-          <div className="max-w-2xl mx-auto">
-            <div className="flex justify-between items-center mb-6">
+          <div className="max-w-full">
+            <div className="flex justify-between items-center mb-6 flex-wrap">
               <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setPedidoSelecionado(null)}
-                  className="text-[#FFA500] hover:text-[#e84343] transition-all"
-                  title="Voltar"
-                >
-                  <IoArrowBack size={24} />
-                </button>
                 <h2 className="text-2xl font-bold text-[#333]">
                   {pedidoSelecionado.cliente}
                 </h2>
@@ -123,18 +136,18 @@ export default function PainelMotoboy() {
               </span>
             </div>
 
-            <section className="mb-6">
+            <section className="mb-4">
               <h3 className="font-semibold text-[#333] mb-1">Cliente</h3>
               <p className="text-sm text-gray-700">{pedidoSelecionado.NomeCliente}</p>
             </section>
 
-            <section className="mb-6">
+            <section className="mb-4">
               <h3 className="font-semibold text-[#333] mb-1">Endereço de Entrega</h3>
               <p className="text-sm text-gray-700">{pedidoSelecionado.endereco}</p>
               <p className="text-sm text-gray-700">{pedidoSelecionado.telefone}</p>
             </section>
 
-            <section className="mb-6">
+            <section className="mb-4">
               <h3 className="font-semibold text-[#333] mb-1">Pagamento</h3>
               <p className="text-sm text-gray-700">{pedidoSelecionado.pagamento}</p>
             </section>
@@ -168,10 +181,8 @@ export default function PainelMotoboy() {
                   <span>
                     R${' '}
                     {(
-                      pedidoSelecionado.produtos.reduce(
-                        (acc, cur) => acc + cur.preco,
-                        0
-                      ) + pedidoSelecionado.entrega
+                      pedidoSelecionado.produtos.reduce((acc, cur) => acc + cur.preco, 0) +
+                      pedidoSelecionado.entrega
                     ).toFixed(2)}
                   </span>
                 </div>
