@@ -61,7 +61,7 @@ export default function DetalhesEntrega() {
             
             <div className="border-l-4 border-yellow-500 pl-4">
                 <p className="text-yellow-600 font-bold text-lg">Guilherme</p>
-                <p className="text-sm text-gray-600">+55 (44) 90998-9977</p>
+                <p className="text-sm text-gray-600">+55 (21) 90998-9977</p>
 
                 {!avaliar ? (
                 <button
