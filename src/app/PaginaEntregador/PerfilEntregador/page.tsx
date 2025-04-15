@@ -10,7 +10,7 @@ export default function PerfilEntregador() {
         <Link href='/PaginaEntregador'>
             <ArrowLeft className="w-5 h-5 text-gray-700" />
         </Link>
-        <h1 className="font-semibold text-lg">CADASTRO</h1>
+        <h1 className="font-semibold text-lg">Perfil</h1>
         <Settings className="w-5 h-5 text-white" />
       </div>
 

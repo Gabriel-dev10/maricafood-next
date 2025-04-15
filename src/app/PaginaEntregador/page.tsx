@@ -50,7 +50,7 @@ export default function PaginaEntregador() {
       <div className="bg-white m-4 p-4 rounded-xl shadow">
         <div className="flex justify-between items-center mb-2">
           <h2 className="font-semibold text-lg">Suas atividades</h2>
-          <a href="#" className="text-sm text-yellow-500 font-medium">Ver extrato</a>
+          <a href="/PaginaEntregador/HistoricoEntregas" className="text-sm text-yellow-500 font-medium">Ver Histórico</a>
         </div>
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
