@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import { ArrowLeft } from 'lucide-react';
 
 const entregas = [
   {
@@ -27,9 +29,20 @@ const entregas = [
 ];
 
 export default function HistoricoEntregas() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-gray-100 px-4 py-6">
-      <h1 className="text-3xl font-bold text-yellow-600 text-center mb-8">
+
+      <button
+        onClick={() => router.back()}
+        className="flex items-center text-yellow-600 hover:text-yellow-800 mb-4"
+      >
+        <ArrowLeft className="mr-2" />
+        Voltar
+      </button>
+
+      <h1 className="text-3xl font-bold  text-yellow-600 text-center mb-8">
         Histórico de Entregas
       </h1>
 

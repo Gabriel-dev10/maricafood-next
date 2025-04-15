@@ -1,7 +1,7 @@
 'use client';
 
 import React from "react";
-import {User, Bell,} from "lucide-react";
+import {User, BookCheck,} from "lucide-react";
 import { IoArrowBack } from 'react-icons/io5'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -31,7 +31,9 @@ export default function PaginaEntregador() {
           <Link href='/PaginaEntregador/PerfilEntregador'>
             <User className="w-6 h-6 text-gray-700 cursor-pointer"/>
           </Link>
-          <Bell className="w-6 h-6 text-gray-700"/>
+          <Link href='/PaginaEntregador/ValidaToken'>
+            <BookCheck className="w-6 h-6 text-gray-700 cursor-pointer"/>
+          </Link>
         </div>
       </div>
 

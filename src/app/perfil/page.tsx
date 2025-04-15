@@ -1,11 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import { User, Clock, MapPin, ShoppingBag } from 'lucide-react';
 
 const PerfilPage = () => {
+  const router = useRouter();
+
   const [userData] = useState({
     name: 'João Silva',
     email: 'joaobastos@gmail.com',
@@ -22,13 +25,14 @@ const PerfilPage = () => {
   return (
     <div>
       <Navbar />
-      
+
       <main className="max-w-7xl mx-auto p-6">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-800 mb-2">Meu Perfil</h2>
           <div className="h-1 w-20 bg-yellow-500"></div>
         </div>
 
+        
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <div className="flex items-center mb-6">
             <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
@@ -39,13 +43,26 @@ const PerfilPage = () => {
               <p className="text-gray-600">{userData.email}</p>
             </div>
           </div>
-          
+
           <div className="flex items-center text-gray-600 mb-4">
             <MapPin className="w-5 h-5 mr-2 text-yellow-500" />
             <span>{userData.address}</span>
           </div>
         </div>
 
+        
+        <div
+          onClick={() => router.push('/perfil/DetalheEntrega')}
+          className="bg-white rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow mb-8"
+        >
+          <div className="flex items-center mb-2">
+            <Clock className="w-6 h-6 text-yellow-500 mr-2" />
+            <h3 className="text-xl font-semibold text-gray-800">Linha do tempo</h3>
+          </div>
+          <p className="text-sm text-gray-500">Acompanhe o status da sua última entrega.</p>
+        </div>
+
+       
         <div className="bg-white rounded-lg shadow-md p-6">
           <div className="flex items-center mb-6">
             <ShoppingBag className="w-6 h-6 text-yellow-500 mr-2" />
@@ -83,6 +100,7 @@ const PerfilPage = () => {
           )}
         </div>
       </main>
+
       <Footer />
     </div>
   );
