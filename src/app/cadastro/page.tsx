@@ -3,10 +3,52 @@
 import { useState } from 'react';
 import { Mail, Lock, User,} from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { signIn } from "next-auth/react";
+
 
 function App() {
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const [error, setError] = useState('')
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
+
+  const handleLogin = async (e: React.FormEvent) => {
+      e.preventDefault()
+
+      const res = await signIn("credentials", {
+      redirect: false,
+      email,
+      senha,
+    });
+
+    if (res?.ok) {
+      router.push("/");
+    } else {
+      setError('Credenciais inválidas!')
+      console.log(error)
+    }
+  };
+
+  const handleRegister = async (e: React.FormEvent) => {
+    
+    e.preventDefault()
+
+  const res = await fetch("/api/auth/register", {
+    method: "POST",
+    body: JSON.stringify({ nome, email, senha }),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  const data = await res.json();
+
+  if (res.ok) {
+    toggleForm();
+  } else {
+    // erro
+  }
+};
 
   const toggleForm = () => setIsLogin(!isLogin);
 
@@ -16,20 +58,32 @@ function App() {
         
         <div className={`absolute w-1/2 h-full transition-all duration-700 ease-in-out bg-white z-10 flex items-center px-10 
           ${isLogin ? 'right-0' : '-right-full'}`}>
-          <form className="w-full text-center" onSubmit={(e) => e.preventDefault()}>
+          <form className="w-full text-center" onSubmit={handleLogin}>
             <h1 className="text-3xl font-bold mb-8">Entrar</h1>
             <div className="relative mb-6">
-              <input type="text" placeholder="Nome" className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" required />
+              <input 
+                type="text"
+                placeholder="Email" 
+                className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required />
               <User className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             </div>
             <div className="relative mb-6">
-              <input type="password" placeholder="Senha" className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" required />
+              <input 
+                type="password" 
+                placeholder="Senha" 
+                className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" 
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                required />
               <Lock className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             </div>
             <div className="text-right mb-6">
               <a href="#" className="text-sm text-gray-600 hover:text-[#7494ec]">Esqueceu a senha?</a>
             </div>
-            <button onClick={() => router.push('/')} className="w-full h-12 rounded-lg text-white font-semibold shadow bg-yellow-500 transition-colors cursor-pointer">
+            <button className="w-full h-12 rounded-lg text-white font-semibold shadow bg-yellow-500 transition-colors cursor-pointer">
               Login
             </button>
           </form>
@@ -38,21 +92,40 @@ function App() {
         
         <div className={`absolute w-1/2 h-full transition-all duration-700 ease-in-out bg-white z-10 flex items-center px-10
           ${isLogin ? '-left-full' : 'left-0'}`}>
-          <form className="w-full text-center" onSubmit={(e) => e.preventDefault()}>
+          <form className="w-full text-center" onSubmit={handleRegister}>
             <h1 className="text-3xl font-bold mb-8">Registrar</h1>
             <div className="relative mb-6">
-              <input type="text" placeholder="Username" className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" required />
+              <input 
+                type="text" 
+                placeholder="Nome Completo" 
+                className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" 
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                required />
+
               <User className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             </div>
             <div className="relative mb-6">
-              <input type="email" placeholder="Email" className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" required />
+              <input 
+                type="email" 
+                placeholder="Email" 
+                className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required />
               <Mail className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             </div>
             <div className="relative mb-6">
-              <input type="password" placeholder="Senha" className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" required />
+              <input 
+                type="password" 
+                placeholder="Senha" 
+                className="w-full py-3 px-5 pr-12 bg-gray-100 rounded-lg outline-none text-gray-700" 
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                required />
               <Lock className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             </div>
-            <button onClick={() => router.push('/')} className="w-full h-12  bg-yellow-500 rounded-lg text-white font-semibold shadow hover:bg-[#8d8c8c9a] transition-colors cursor-pointer">
+            <button className="w-full h-12  bg-yellow-500 rounded-lg text-white font-semibold shadow hover:bg-[#8d8c8c9a] transition-colors cursor-pointer">
               Register
             </button>
           </form>
