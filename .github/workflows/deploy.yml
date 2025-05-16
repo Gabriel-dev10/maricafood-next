@@ -3,7 +3,7 @@ name: Deploy para Locaweb via FTP
 on:
   push:
     branches:
-      - main  # Ou a branch que você quiser monitorar
+      - master  # Ou a branch que você quiser monitorar
 
 jobs:
   deploy:
@@ -20,5 +20,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /public_html/  # Altere se for necessário
+          server-dir: /home/maricafoodprovis1/  # Altere se for necessário
           protocol: ftp
